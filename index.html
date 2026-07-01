@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>釜山 5 天 4 夜｜情侶旅行計畫</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #0A3D5C;
+    --deep-soft: #134A6B;
+    --teal: #17B2C4;
+    --teal-light: #E8F7FA;
+    --coral: #FF6F59;
+    --coral-light: #FFEEE9;
+    --gold: #F4B860;
+    --gold-light: #FFF6E5;
+    --purple: #8E6FCB;
+    --purple-light: #F2EDFB;
+    --slate: #5B7184;
+    --slate-light: #EEF2F5;
+    --sand: #FFF8EE;
+    --ink: #1B2B3A;
+    --muted: #6B7E8F;
+    --white: #FFFFFF;
+    --line: #E4DCC8;
+    --shadow: 0 10px 30px -12px rgba(10, 61, 92, 0.18);
+    --shadow-sm: 0 4px 14px -6px rgba(10, 61, 92, 0.15);
+    --radius: 20px;
+    --radius-sm: 12px;
+    --serif: "Noto Serif TC", "Songti TC", serif;
+    --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--sand);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  img, svg { display: block; max-width: 100%; }
+  /* Safety net: any inline icon SVG not explicitly sized elsewhere defaults to a sane icon size */
+  svg:not([class]) { width: 20px; height: 20px; flex-shrink: 0; }
+
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--teal); color: var(--white); }
+
+  /* ================= Texture overlay ================= */
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ================= Hero ================= */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(165deg, var(--deep) 0%, var(--deep-soft) 45%, var(--teal) 130%);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 40px 24px;
+  }
+
+  .hero::before,
+  .hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+  }
+  .hero::before {
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(255,255,255,0.10), transparent 70%);
+    top: -160px; right: -120px;
+  }
+  .hero::after {
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(244,184,96,0.18), transparent 70%);
+    bottom: -140px; left: -100px;
+  }
+
+  .hero-waves {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    opacity: 0.5;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 9vw, 96px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero .sub {
+    font-size: clamp(16px, 2.4vw, 20px);
+    color: rgba(255,255,255,0.85);
+    margin-top: 22px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-dates {
+    margin-top: 44px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 15px;
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+  }
+  .hero-dates .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-family: var(--mono);
+    z-index: 2;
+    animation: bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
+  }
+
+  /* ================= Layout shell ================= */
+  .shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ================= Info bar (trip facts) ================= */
+  .info-section {
+    background: var(--white);
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .info-card {
+    background: var(--sand);
+    border-radius: var(--radius-sm);
+    padding: 26px 22px;
+    border: 1px solid var(--line);
+  }
+
+  .info-card .icon-wrap { margin-bottom: 14px; }
+  .info-card .icon-wrap svg { width: 38px; height: 38px; }
+  .info-card .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .info-card .value {
+    font-size: 14.5px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .info-card .value small { color: var(--muted); font-weight: 400; display: block; margin-top: 2px;}
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--deep);
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .section-title .num {
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--teal);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .section-kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--coral);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  /* ================= Overview timeline strip ================= */
+  .overview-section {
+    background: var(--sand);
+    padding: 80px 0;
+  }
+
+  .overview-list {
+    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+
+  .overview-row {
+    display: grid;
+    grid-template-columns: 90px 50px 1fr 110px;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 18px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.2s ease;
+    cursor: pointer;
+  }
+  .overview-row:hover { background: rgba(23,178,196,0.06); }
+
+  .overview-row .ov-date { font-family: var(--mono); font-size: 14px; color: var(--muted); font-weight: 600; }
+  .overview-row .ov-day-dot {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--white);
+  }
+  .overview-row .ov-title { font-size: 16px; font-weight: 600; color: var(--ink); }
+  .overview-row .ov-stay { font-size: 13px; color: var(--muted); text-align: right; }
+
+  /* ================= Map section ================= */
+  .map-section {
+    background: var(--white);
+    padding: 80px 0;
+  }
+  .map-frame {
+    margin-top: 40px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+  .map-frame img { width: 100%; }
+  .map-caption {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ================= Day Section ================= */
+  .day-section {
+    padding: 100px 0;
+    position: relative;
+    scroll-margin-top: 40px;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 12px;
+  }
+
+  .day-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+
+  .day-title {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5vw, 54px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--deep);
+    max-width: 720px;
+  }
+
+  .day-meta-bar {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    padding: 22px 28px;
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+  .day-meta-item { display: flex; align-items: center; gap: 10px; font-size: 14px; flex: 1 1 200px; min-width: 0; }
+  .day-meta-item svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .day-meta-item .meta-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .day-meta-item .meta-label { color: var(--muted); font-size: 11.5px; white-space: nowrap; }
+  .day-meta-item .meta-val { font-weight: 600; color: var(--ink); font-size: 13.5px; line-height: 1.4; }
+
+  .day-note {
+    margin-top: 22px;
+    padding: 16px 22px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--deep-soft);
+    border-left: 3px solid var(--gold);
+    background: var(--gold-light);
+  }
+
+  /* timeline */
+  .timeline {
+    margin-top: 56px;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, var(--line) 0, var(--line) 6px, transparent 6px, transparent 12px);
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    position: relative;
+    padding-bottom: 36px;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+
+  .tl-dot {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--white);
+    border: 2px solid var(--line);
+    position: relative;
+    z-index: 1;
+  }
+  .tl-dot svg { width: 26px; height: 26px; }
+
+  .tl-card {
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    padding: 20px 24px;
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .tl-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+  .tl-time {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .tl-label {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tl-detail { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: var(--teal-light);
+    color: var(--teal);
+    border: 1px solid rgba(23,178,196,0.3);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .map-link:hover { background: var(--teal); color: var(--white); }
+  .map-link svg { width: 11px; height: 11px; }
+
+  /* transit toggle cards */
+  .transit-block {
+    margin-top: 50px;
+  }
+  .transit-route-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--deep);
+    margin: 28px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .transit-route-title svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--coral); }
+  .transit-route-title:first-child { margin-top: 0; }
+  .transit-route-title::before {
+    content: "";
+    width: 18px; height: 1px;
+    background: var(--line);
+  }
+
+  .transit-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 720px) { .transit-pair { grid-template-columns: 1fr; } }
+
+  .transit-option {
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+  .transit-option.uber { border-top: 3px solid var(--coral); }
+  .transit-option.metro { border-top: 3px solid var(--teal); }
+  .transit-option .t-head {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 13px; margin-bottom: 8px;
+  }
+  .transit-option.uber .t-head { color: var(--coral); }
+  .transit-option.metro .t-head { color: var(--teal); }
+  .transit-option .t-head svg { width: 16px; height: 16px; }
+  .transit-option p { font-size: 13.5px; color: var(--ink); line-height: 1.65; }
+  .transit-option .t-fare {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line);
+  }
+
+  /* tip card */
+  .tip-card {
+    margin-top: 50px;
+    background: var(--deep);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tip-card::after {
+    content: "";
+    position: absolute;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+    top: -80px; right: -60px;
+  }
+  .tip-card h4 {
+    font-family: var(--serif);
+    font-size: 20px;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+    position: relative; z-index: 1;
+  }
+  .tip-card h4 svg { width: 24px; height: 24px; flex-shrink: 0; }
+  .tip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 28px;
+    position: relative; z-index: 1;
+  }
+  @media (max-width: 720px) { .tip-grid { grid-template-columns: 1fr; } }
+  .tip-grid .tip-item { font-size: 13.5px; color: rgba(255,255,255,0.88); line-height: 1.65; }
+  .tip-grid .tip-item b { color: var(--gold); font-weight: 700; }
+
+  /* restaurant section */
+  .resto-block { margin-top: 56px; }
+  .resto-group-title {
+    font-size: 14px; font-weight: 700; color: var(--deep);
+    margin: 30px 0 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .resto-group-title:first-child { margin-top: 0; }
+  .resto-group-title::before { content: "🍽"; font-size: 13px; }
+
+  .resto-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 720px) { .resto-grid { grid-template-columns: 1fr; } }
+
+  .resto-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .resto-card:hover { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+  .resto-name {
+    font-weight: 700; font-size: 15px; color: var(--ink);
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    margin-bottom: 6px;
+  }
+  .resto-desc { font-size: 13px; color: var(--muted); margin-bottom: 12px; line-height: 1.6; }
+  .resto-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--slate);
+    padding-top: 10px; border-top: 1px dashed var(--line);
+    font-family: var(--mono);
+  }
+
+  /* highlight feature card (Flipbook studio, Bay101 photo tips etc) */
+  .feature-card {
+    margin-top: 50px;
+    border-radius: var(--radius);
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  @media (max-width: 720px) { .feature-card { grid-template-columns: 1fr; } }
+  .feature-icon {
+    width: 180px; height: 180px;
+    border-radius: 24px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .feature-icon svg { width: 92px; height: 92px; }
+  .feature-card h4 {
+    font-family: var(--serif);
+    font-size: 22px;
+    margin-bottom: 14px;
+    color: var(--deep);
+  }
+  .feature-list { display: flex; flex-direction: column; gap: 10px; }
+  .feature-list .f-item { font-size: 13.5px; color: var(--ink); line-height: 1.7; }
+  .feature-list .f-item b { color: var(--deep); font-weight: 700; }
+
+  /* ================= Final tips ================= */
+  .final-tips {
+    background: var(--deep);
+    color: var(--white);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-tips::before {
+    content: "";
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(244,184,96,0.10), transparent 70%);
+    top: -200px; left: -150px;
+  }
+  .final-tips .section-kicker { color: var(--gold); }
+  .final-tips .section-title { color: var(--white); }
+
+  .tips-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    position: relative; z-index: 1;
+  }
+  @media (max-width: 720px) { .tips-grid { grid-template-columns: 1fr; } }
+
+  .tips-grid .tip-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-sm);
+    padding: 20px 22px;
+  }
+  .tips-grid .tip-box b { color: var(--gold); display: block; font-size: 14px; margin-bottom: 6px; }
+  .tips-grid .tip-box span { font-size: 13.5px; color: rgba(255,255,255,0.82); line-height: 1.65; }
+
+  .closing-line {
+    margin-top: 60px;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--gold);
+    position: relative; z-index: 1;
+  }
+
+  footer {
+    background: var(--deep);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 28px 24px 40px;
+    font-size: 12px;
+    font-family: var(--mono);
+    letter-spacing: 1px;
+  }
+
+  /* ================= Top day-nav bar ================= */
+  .top-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 2px 16px -4px rgba(10,61,92,0.10);
+  }
+
+  .top-nav-logo {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--deep);
+    letter-spacing: 2px;
+    white-space: nowrap;
+    margin-right: 12px;
+    opacity: 0.55;
+    display: none;
+  }
+
+  .top-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    background: transparent;
+    border: 1.5px solid var(--line);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .top-nav-btn:hover {
+    border-color: currentColor;
+    transform: translateY(-1px);
+  }
+  .top-nav-btn .btn-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .top-nav-btn:hover .btn-dot { transform: scale(1.4); }
+  .top-nav-btn.active {
+    color: var(--white);
+    border-color: transparent;
+    box-shadow: 0 3px 12px -3px rgba(0,0,0,0.22);
+  }
+
+  /* day-specific active colors */
+  .top-nav-btn[data-day="day1"].active { background: #FF6F59; }
+  .top-nav-btn[data-day="day2"].active { background: #F4B860; }
+  .top-nav-btn[data-day="day3"].active { background: #17B2C4; }
+  .top-nav-btn[data-day="day4"].active { background: #8E6FCB; }
+  .top-nav-btn[data-day="day5"].active { background: #5B7184; }
+
+  /* Body needs top padding so hero isn't hidden behind fixed nav */
+  body { padding-top: 58px; }
+  /* But hero should still look full-height by adjusting its min-height */
+  .hero { min-height: calc(100vh - 58px); }
+
+  @media (max-width: 640px) {
+    .top-nav { gap: 5px; padding: 8px 10px; }
+    .top-nav-btn { padding: 6px 10px; font-size: 11px; gap: 5px; }
+    .top-nav-btn .btn-label { display: none; }   /* mobile: show dot only */
+    .top-nav-btn .btn-day-num { display: inline; }
+    .top-nav-logo { display: none; }
+  }
+  @media (min-width: 641px) {
+    .top-nav-btn .btn-day-num { display: none; }  /* desktop: show label */
+    .top-nav-logo { display: block; }
+  }
+
+  @media (max-width: 900px) {
+    .info-grid { grid-template-columns: repeat(2, 1fr); }
+    .overview-row { grid-template-columns: 70px 40px 1fr; }
+    .overview-row .ov-stay { display: none; }
+  }
+
+  @media (max-width: 560px) {
+    .day-section { padding: 70px 0; }
+    .info-section, .overview-section, .map-section { padding: 56px 0; }
+    .hero-dates { font-size: 12px; gap: 10px; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 4px; }
+  }
+
+  /* fade-in on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ============ Top day nav bar ============ -->
+<nav class="top-nav" id="topNav">
+  <span class="top-nav-logo">BUSAN 5D4N</span>
+  <a class="top-nav-btn" href="#day1" data-day="day1">
+    <span class="btn-dot" style="background:#FF6F59"></span>
+    <span class="btn-label">Day 1 廣安里</span>
+    <span class="btn-day-num">D1</span>
+  </a>
+  <a class="top-nav-btn" href="#day2" data-day="day2">
+    <span class="btn-dot" style="background:#F4B860"></span>
+    <span class="btn-label">Day 2 甘川</span>
+    <span class="btn-day-num">D2</span>
+  </a>
+  <a class="top-nav-btn" href="#day3" data-day="day3">
+    <span class="btn-dot" style="background:#17B2C4"></span>
+    <span class="btn-label">Day 3 海雲台</span>
+    <span class="btn-day-num">D3</span>
+  </a>
+  <a class="top-nav-btn" href="#day4" data-day="day4">
+    <span class="btn-dot" style="background:#8E6FCB"></span>
+    <span class="btn-label">Day 4 西面/Luge</span>
+    <span class="btn-day-num">D4</span>
+  </a>
+  <a class="top-nav-btn" href="#day5" data-day="day5">
+    <span class="btn-dot" style="background:#5B7184"></span>
+    <span class="btn-label">Day 5 返程</span>
+    <span class="btn-day-num">D5</span>
+  </a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <svg class="hero-waves" viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="rgba(255,255,255,0.06)"/>
+    <path d="M0,80 C240,40 480,110 720,80 C960,50 1200,110 1440,80 L1440,120 L0,120 Z" fill="rgba(255,255,255,0.04)"/>
+  </svg>
+  <div class="hero-eyebrow">B U S A N &nbsp; S U M M E R &nbsp; G E T A W A Y</div>
+  <h1>釜山<br>5 天 4 夜</h1>
+  <p class="sub">情侶旅行計畫書 — 海景・美食・慢遊</p>
+  <div class="hero-dates">
+    <span>2026 . 07 . 20</span>
+    <span class="dot"></span>
+    <span>台北 → 釜山</span>
+    <span class="dot"></span>
+    <span>2026 . 07 . 24</span>
+  </div>
+  <div class="hero-scroll">SCROLL ↓</div>
+</section>
+
+<section class="info-section">
+  <div class="shell">
+    <div class="reveal">
+      <div class="section-kicker">Trip Facts</div>
+      <h2 class="section-title"><span class="num">01</span> 旅程資訊</h2>
+    </div>
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <div class="icon-wrap" style="color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a1.5 1.5 0 0 0-2.1-2.1L14 8.9 5.8 7.1a1 1 0 0 0-.9.3l-.6.6 6.2 4.2-3 3-2.5-.4-.7.7 2.3 1.9 1.9 2.3.7-.7-.4-2.5 3-3 4.2 6.2.6-.6a1 1 0 0 0 .3-.9Z"/></svg></div>
+        <div class="label">航班</div>
+        <div class="value">CI190　7/20 06:15→09:30<small>CI189　7/24 12:15→13:40</small></div>
+      </div>
+      <div class="info-card">
+        <div class="icon-wrap" style="color:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V7a1 1 0 0 1 1-1h7v15"/><path d="M14 21V11a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v10"/><path d="M3 21h18"/><path d="M7 10h.01M7 13h.01M7 16h.01"/><path d="M17 14h.01M17 17h.01"/></svg></div>
+        <div class="label">住宿</div>
+        <div class="value">HLB飯店<small>中央大路1121號・蓮山站7號出口步行4分</small></div>
+      </div>
+      <div class="info-card">
+        <div class="icon-wrap" style="color:var(--gold)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+        <div class="label">市內交通</div>
+        <div class="value">Uber ／ 地鐵<small>每段路線皆提供雙方案比較</small></div>
+      </div>
+      <div class="info-card">
+        <div class="icon-wrap" style="color:var(--purple)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M15.5 14.7c2.4.2 4.5 2.1 4.5 5.3"/></svg></div>
+        <div class="label">同行・節奏</div>
+        <div class="value">2 人同行<small>每天 2-3 個主要景點</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="overview-section">
+  <div class="shell">
+    <div class="reveal">
+      <div class="section-kicker">Itinerary At A Glance</div>
+      <h2 class="section-title"><span class="num">02</span> 行程總覽</h2>
+    </div>
+    <div class="overview-list reveal">
+      
+    <div class="overview-row" onclick="document.getElementById('day1').scrollIntoView({behavior:'smooth'})">
+      <div class="ov-date">7/20（一）</div>
+      <div class="ov-day-dot" style="background:#FF6F59">D1</div>
+      <div class="ov-title">抵達釜山 + 廣安里海邊浪漫散步</div>
+      <div class="ov-stay">HLB飯店</div>
+    </div>
+    <div class="overview-row" onclick="document.getElementById('day2').scrollIntoView({behavior:'smooth'})">
+      <div class="ov-date">7/21（二）</div>
+      <div class="ov-day-dot" style="background:#F4B860">D2</div>
+      <div class="ov-title">甘川文化村 + 札嘎其市場 + 南浦洞</div>
+      <div class="ov-stay">HLB飯店</div>
+    </div>
+    <div class="overview-row" onclick="document.getElementById('day3').scrollIntoView({behavior:'smooth'})">
+      <div class="ov-date">7/22（三）</div>
+      <div class="ov-day-dot" style="background:#17B2C4">D3</div>
+      <div class="ov-title">海雲台浪漫海岸線</div>
+      <div class="ov-stay">HLB飯店</div>
+    </div>
+    <div class="overview-row" onclick="document.getElementById('day4').scrollIntoView({behavior:'smooth'})">
+      <div class="ov-date">7/23（四）</div>
+      <div class="ov-day-dot" style="background:#8E6FCB">D4</div>
+      <div class="ov-title">Skyline Luge 斜坡滑車 + 西面購物</div>
+      <div class="ov-stay">HLB飯店</div>
+    </div>
+    <div class="overview-row" onclick="document.getElementById('day5').scrollIntoView({behavior:'smooth'})">
+      <div class="ov-date">7/24（五）</div>
+      <div class="ov-day-dot" style="background:#5B7184">D5</div>
+      <div class="ov-title">早晨悠閒 + 返程</div>
+      <div class="ov-stay">—</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="shell">
+    <div class="reveal">
+      <div class="section-kicker">Geography</div>
+      <h2 class="section-title"><span class="num">03</span> 行程地圖</h2>
+    </div>
+    <div class="map-frame reveal">
+      <img src="assets/busan_map.png" alt="釜山五天四夜行程地圖示意圖" loading="lazy">
+    </div>
+    <p class="map-caption">示意圖，各景點相對位置參考，非精確地理比例；地鐵路線為示意走向，非實際軌道線形</p>
+  </div>
+</section>
+
+<section class="day-section" id="day1" style="background:var(--coral-light)">
+  <div class="shell">
+    <div class="reveal">
+      <span class="day-badge" style="background:var(--coral);color:white">DAY 1 ／ 7.20 MON</span>
+      <h2 class="day-title">抵達釜山，<br>廣安里海邊浪漫散步</h2>
+      
+    <div class="day-meta-bar">
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.8V5a2 2 0 0 1 4 0v9.8a4 4 0 1 1-4 0Z"/></svg><div class="meta-text"><span class="meta-label">氣溫</span><span class="meta-val">27-31°C</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v7a2 2 0 0 1-4 0"/><path d="M12 3v2"/></svg><div class="meta-text"><span class="meta-label">降雨</span><span class="meta-val">中高</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11.5a6 6 0 0 1-12 0C6 10 12 3 12 3Z"/></svg><div class="meta-text"><span class="meta-label">濕度</span><span class="meta-val">偏潮濕悶熱</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.5 9 4.5 4.5 0 0 1 18 18Z"/><circle cx="9" cy="7" r="2.4" fill="none"/></svg><div class="meta-text"><span class="meta-label">提醒</span><span class="meta-val">備防曬乳、輕便雨具</span></div></div>
+    </div>
+    </div>
+
+    <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a1.5 1.5 0 0 0-2.1-2.1L14 8.9 5.8 7.1a1 1 0 0 0-.9.3l-.6.6 6.2 4.2-3 3-2.5-.4-.7.7 2.3 1.9 1.9 2.3.7-.7-.4-2.5 3-3 4.2 6.2.6-.6a1 1 0 0 0 .3-.9Z"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">06:15</div>
+        <div class="tl-label">TPE 出發 </div>
+        <div class="tl-detail">搭乘中華航空 CI190</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a1.5 1.5 0 0 0-2.1-2.1L14 8.9 5.8 7.1a1 1 0 0 0-.9.3l-.6.6 6.2 4.2-3 3-2.5-.4-.7.7 2.3 1.9 1.9 2.3.7-.7-.4-2.5 3-3 4.2 6.2.6-.6a1 1 0 0 0 .3-.9Z"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">09:30</div>
+        <div class="tl-label">抵達 PUS 金海機場 </div>
+        <div class="tl-detail">入境、領行李</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">10:00</div>
+        <div class="tl-label">前往 HLB飯店 <a class="map-link" href="https://map.naver.com/p/search/HLB%20Hotel%20Busan" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">詳細交通方式見下表</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">12:00</div>
+        <div class="tl-label">午餐：飯店周邊 </div>
+        <div class="tl-detail">蓮山站附近，簡單吃湯飯或排骨湯</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">14:00</div>
+        <div class="tl-label">前往 廣安里海邊 <a class="map-link" href="https://map.naver.com/p/search/%EA%B4%91%EC%95%88%EB%A6%AC%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">詳細交通方式見下表</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 4c0 1-1 1-1 2M11 4c0 1-1 1-1 2"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">16:00</div>
+        <div class="tl-label">廣安里咖啡街 <a class="map-link" href="https://map.naver.com/p/search/%EA%B4%91%EC%95%88%EB%A6%AC%20%EC%B9%B4%ED%8E%98%EA%B1%B0%EB%A6%AC" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">找一間海景咖啡廳坐著休息</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">18:30</div>
+        <div class="tl-label">晚餐：廣安里海景餐廳 </div>
+        <div class="tl-detail">見下方餐廳推薦</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">20:00</div>
+        <div class="tl-label">廣安大橋夜景 <a class="map-link" href="https://map.naver.com/p/search/%EA%B4%91%EC%95%88%EB%8C%80%EA%B5%90" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">燈光秀，晚上散步很浪漫</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#FF6F59"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#FF6F59">21:30</div>
+        <div class="tl-label">返回 HLB飯店 </div>
+        <div class="tl-detail">詳細交通方式見下表</div>
+      </div>
+    </div></div>
+
+    <div class="transit-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">→</span>交通方式</h3>
+      
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> 金海機場 → HLB飯店</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約20km，車程30-40分，預估₩20,000-25,000（約NT$444-555）；國際線出口排班計程車或叫Uber/Kakao T皆可，行李多最方便</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>金海輕軌（機場站）往伽倻大站方向，於大渚站轉乘地鐵3號線，搭至蓮山站（第12站），全程約50-60分；步行到飯店約4分鐘；費用約₩2,100-2,300（交通卡）</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> HLB飯店 → 廣安里海邊</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約4km，車程10-15分，預估₩6,000-8,000（約NT$133-178）；直接叫車最快最省力</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>蓮山站搭3號線往水營站方向（1站），於水營站轉乘2號線往海雲台方向，搭至廣安站（1站），全程約15-20分，步行至海邊約10分；費用約₩1,600-1,800（交通卡，30分鐘內轉乘優惠）</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> 廣安里海邊 → HLB飯店（晚間回程）</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約4km，車程10-15分，預估₩7,000-9,000（約NT$155-200，含夜間加成）；晚間建議直接叫車較安全方便</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>廣安站搭2號線往西面方向，於水營站轉乘3號線往蓮山站方向，全程約15-20分；地鐵約23:00-24:00收班，請留意末班車時間</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="resto-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">🍽</span>餐廳推薦</h3>
+      <div class="resto-group-title">午餐（飯店周邊）</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">一品狀元豬肉湯飯 <a class="map-link" href="https://map.naver.com/p/search/%EC%9D%BC%ED%92%88%EC%9E%A5%EC%9B%90%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">蓮山站周邊豬肉湯飯老店，簡單暖胃</div>
+      <div class="resto-meta"><span>📍 부산 부산진구 부전동 403-25</span><span>24小時</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">馬鈴薯排骨湯專賣店 <a class="map-link" href="https://map.naver.com/p/search/%E8%93%AE%E5%B1%B1%E7%AB%99%20%EA%B0%90%EC%9E%90%ED%83%95" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">份量足，適合剛落地的第一餐</div>
+      <div class="resto-meta"><span>📍 蓮山站周邊</span><span>依店家公告</span></div>
+    </div></div><div class="resto-group-title">晚餐（廣安里海景餐廳）</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">彥陽烤牛肉釜山家 <a class="map-link" href="https://map.naver.com/p/search/%EC%96%B8%EC%96%91%EB%B6%88%EA%B3%A0%EA%B8%B0%EB%B6%80%EC%82%B0%EC%A7%91" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">米其林推薦，玄彬也造訪過的1++韓牛烤肉，邊吃邊賞海景</div>
+      <div class="resto-meta"><span>📍 부산 수영구 남천바다로 32</span><span>11:00-21:30</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">Nasari食堂 <a class="map-link" href="https://map.naver.com/p/search/%EB%82%98%EC%82%AC%EB%A6%AC%EC%8B%9D%EB%8B%B9%20%EA%B4%91%EC%95%88%EC%A0%90" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">廣安里海景第一排，招牌海鮮刀削麵、生牛肉辣拌麵（約₩50,000/4道菜，適合2人）</div>
+      <div class="resto-meta"><span>📍 부산 수영구 광안로61번길 60 3층</span><span>11:00-22:00</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">청춘조개포차 廣安直營店 <a class="map-link" href="https://map.naver.com/p/search/%EC%B2%AD%EC%B6%98%EC%A1%B0%EA%B0%9C%ED%8F%AC%EC%B0%A8%20%EA%B4%91%EC%95%88%EC%A0%90" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">活貝類無限續點，靠窗座位可看廣安大橋海景，氣氛熱鬧</div>
+      <div class="resto-meta"><span>📍 부산 수영구 광안해변로 199 2층</span><span>12:00-04:00</span></div>
+    </div></div><div class="resto-group-title">夜間咖啡／小酌</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">Caffeine Charger 廣안里本店 <a class="map-link" href="https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%EC%9D%B8%EC%B0%A8%EC%A0%80%20%EA%B4%91%EC%95%88%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">窗邊正對廣安大橋夜景，適合晚餐後續攤</div>
+      <div class="resto-meta"><span>📍 부산 수영구 광안해변로 237 2층</span><span>10:00-23:00</span></div>
+    </div></div>
+    </div>
+
+    
+    <div class="tip-card">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg> 廣安里 Tips</h4>
+      <div class="tip-grid"><div class="tip-item"><b>夜景時機　</b>廣安大橋燈光秀每晚點亮，海邊餐廳多設有面海窗景座位，建議提早入座搶好位置</div><div class="tip-item"><b>交通提醒　</b>夜間Uber有約20%加成費用，地鐵約23:00-24:00收班，請留意末班車</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="day-section" id="day2" style="background:var(--gold-light)">
+  <div class="shell">
+    <div class="reveal">
+      <span class="day-badge" style="background:var(--gold);color:white">DAY 2 ／ 7.21 TUE</span>
+      <h2 class="day-title">懷舊文化村，<br>老城區市場散步</h2>
+      
+    <div class="day-meta-bar">
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.8V5a2 2 0 0 1 4 0v9.8a4 4 0 1 1-4 0Z"/></svg><div class="meta-text"><span class="meta-label">氣溫</span><span class="meta-val">26-30°C</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v7a2 2 0 0 1-4 0"/><path d="M12 3v2"/></svg><div class="meta-text"><span class="meta-label">降雨</span><span class="meta-val">中高</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11.5a6 6 0 0 1-12 0C6 10 12 3 12 3Z"/></svg><div class="meta-text"><span class="meta-label">濕度</span><span class="meta-val">偏潮濕</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.5 9 4.5 4.5 0 0 1 18 18Z"/><circle cx="9" cy="7" r="2.4" fill="none"/></svg><div class="meta-text"><span class="meta-label">提醒</span><span class="meta-val">甘川文化村建議上午前往</span></div></div>
+    </div>
+    </div>
+
+    <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 4c0 1-1 1-1 2M11 4c0 1-1 1-1 2"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">09:00</div>
+        <div class="tl-label">早餐：飯店周邊覓食 </div>
+        <div class="tl-detail">蓮山站附近找早餐店或咖啡廳，無附早餐</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">10:00</div>
+        <div class="tl-label">前往 甘川文化村 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%90%EC%B2%9C%EB%AC%B8%ED%99%94%EB%A7%88%EC%9D%84" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">建議早點去避開人潮與烈日</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-2h6l2 2h3v11H4Z"/><circle cx="12" cy="13.5" r="3.4"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">10:30</div>
+        <div class="tl-label">文化村散步拍照 </div>
+        <div class="tl-detail">彩色階梯屋、小王子雕像、壁畫巷</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4Z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">12:00</div>
+        <div class="tl-label">Flipbook Studio 手翻書體驗 </div>
+        <div class="tl-detail">網路超夯紀念品，見下方體驗小提醒</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">13:00</div>
+        <div class="tl-label">前往 札嘎其市場 <a class="map-link" href="https://map.naver.com/p/search/%EC%9E%90%EA%B0%88%EC%B9%98%EC%8B%9C%EC%9E%A5" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">韓國最大海鮮市場</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">13:30</div>
+        <div class="tl-label">午餐：市場現點現煮海鮮 </div>
+        <div class="tl-detail">見下方餐廳推薦</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8 5 4h14l1 4"/><path d="M4 8h16v12H4Z"/><path d="M9 12a3 3 0 0 0 6 0"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">15:00</div>
+        <div class="tl-label">南浦洞光復路逛街 <a class="map-link" href="https://map.naver.com/p/search/%EA%B4%91%EB%B3%B5%EB%A1%9C" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">國際市場、BIFF廣場（步行約10分即達）</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l5-4 5 4v12"/><path d="M14 21v-8l4-3 2 2v9"/><path d="M4 21h16"/><path d="M7 12h.01M7 15h.01M7 18h.01M11 12h.01M11 15h.01M11 18h.01"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">16:30</div>
+        <div class="tl-label">釜山塔（龍頭山公園） <a class="map-link" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%ED%83%80%EC%9B%8C" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">可登塔看市區全景</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">18:00</div>
+        <div class="tl-label">晚餐：南浦洞美食街 </div>
+        <div class="tl-detail">辣炒年糕、刀切麵、烤肉</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#F4B860">19:30</div>
+        <div class="tl-label">返回 HLB飯店 </div>
+        <div class="tl-detail">詳細交通方式見下表</div>
+      </div>
+    </div></div>
+
+    <div class="transit-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">→</span>交通方式</h3>
+      
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> HLB飯店 → 甘川文化村</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約9km，車程20-25分，預估₩10,000-13,000（約NT$222-289）；坡道多，直接叫車到入口最省力</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>蓮山站搭1號線（與3號線同站）往南浦方向，至土城站（6號出口），轉乘社區公車1-1、2或2-2（車身有中文「甘川文化村」標示），約10分鐘至甘川小學站；全程約45-55分；公車票約₩1,600（交通卡）</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> 甘川文化村 → 札嘎其市場</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約5km，車程12-15分，預估₩7,000-9,000（約NT$155-200）；多為下坡路段，叫車比走回公車站更省力</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>從甘川小學站搭原社區公車回到土城站，轉乘地鐵1號線往南浦方向，至札嘎其站（1站），全程約20-25分；票價約₩1,600（交通卡，含轉乘優惠）</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> 南浦洞 → HLB飯店（晚間回程）</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約10km，車程20-25分，預估₩12,000-15,000（約NT$266-333，含夜間加成）</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>南浦站搭1號線往蓮山方向，直達蓮山站（與1號線、3號線交會站），約8站、全程約20分；票價約₩1,600-1,800（交通卡）</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="reveal">
+    <div class="feature-card" style="background:var(--gold-light)">
+      <div class="feature-icon" style="background:#F4B8601A;color:#F4B860"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4Z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></div>
+      <div>
+        <h4>📷 Flipbook Studio 手翻書小提醒</h4>
+        <div class="feature-list"><div class="f-item"><b>位置</b>　店名「움직이는사진상점」（移動的照片商店），就在甘川文化村入口步行約3-5分鐘處</div><div class="f-item"><b>玩法</b>　綠幕拍攝8秒連續動作，建議先想好動作再拍，效果越大越好；現場有道具服裝可借</div><div class="f-item"><b>價格</b>　現場付現約₩15,000/本（可不斷重拍至滿意，印製約10-15分鐘）；穿著請避開綠色衣物</div><div class="f-item"><b>營業時間</b>　10:00-18:00，沒有事先預約制，現場排隊，旺季建議排隊20分鐘起</div></div>
+      </div>
+    </div></div>
+
+    <div class="resto-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">🍽</span>餐廳推薦</h3>
+      <div class="resto-group-title">午餐（札嘎其市場）</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">市場內現點現煮海鮮攤 <a class="map-link" href="https://map.naver.com/p/search/%EC%9E%90%EA%B0%88%EC%B9%98%EC%8B%9C%EC%9E%A5" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">生章魚、烤魚、海鮮鍋，現場挑選活魚現切生魚片</div>
+      <div class="resto-meta"><span>📍 부산 중구 자갈치해안로 52</span><span>約05:00-22:00</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">元祖釜山豬腳 <a class="map-link" href="https://map.naver.com/p/search/%EC%9B%90%EC%A1%B0%EB%B6%80%EC%82%B0%EC%A1%B1%EB%B0%9C" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">招牌涼拌豬腳，片片厚薄均勻、軟嫩多汁</div>
+      <div class="resto-meta"><span>📍 부산 중구 광복로 13-1</span><span>10:00-24:00</span></div>
+    </div></div><div class="resto-group-title">晚餐（南浦洞）</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">喉嚨鍋蓋烤肉南浦店 <a class="map-link" href="https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EB%AA%A9%EA%B5%AC%EB%A9%8D%20%EC%86%A5%EB%9A%9C%EA%BB%91" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">現點現切專人代烤，激推牛小排</div>
+      <div class="resto-meta"><span>📍 南浦洞光復路周邊</span><span>依店家公告</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">朝鮮的韓牛南浦店 <a class="map-link" href="https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%ED%95%9C%EC%9A%B0" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">火焰韓牛秀，吃飯也有儀式感</div>
+      <div class="resto-meta"><span>📍 南浦洞光復路周邊</span><span>依店家公告</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">BIFF廣場元祖糖餅 <a class="map-link" href="https://map.naver.com/p/search/BIFF%EA%B4%91%EC%9E%A5%20%EC%94%A8%EC%95%97%ED%98%B8%EB%96%A1" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">外皮酥脆內餡香甜的糖餅老店</div>
+      <div class="resto-meta"><span>📍 부산 중구 비프광장로 36</span><span>10:00-21:00</span></div>
+    </div></div>
+    </div>
+
+    
+    <div class="tip-card">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 9 7l4 6 2-3 6 9Z"/><circle cx="17" cy="6" r="1.6"/></svg> 甘川文化村 Tips</h4>
+      <div class="tip-grid"><div class="tip-item"><b>人潮提醒　</b>建議上午前往，避開逆光與人潮；部分坡道階梯較多，請穿好走的鞋</div><div class="tip-item"><b>交通建議　</b>南浦洞景點集中，光復路、BIFF廣場、札嘎其市場步行即可串連，省下不少車資</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="day-section" id="day3" style="background:var(--teal-light)">
+  <div class="shell">
+    <div class="reveal">
+      <span class="day-badge" style="background:var(--teal);color:white">DAY 3 ／ 7.22 WED</span>
+      <h2 class="day-title">海雲台浪漫海岸線</h2>
+      
+    <div class="day-meta-bar">
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.8V5a2 2 0 0 1 4 0v9.8a4 4 0 1 1-4 0Z"/></svg><div class="meta-text"><span class="meta-label">氣溫</span><span class="meta-val">27-31°C</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v7a2 2 0 0 1-4 0"/><path d="M12 3v2"/></svg><div class="meta-text"><span class="meta-label">降雨</span><span class="meta-val">中</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11.5a6 6 0 0 1-12 0C6 10 12 3 12 3Z"/></svg><div class="meta-text"><span class="meta-label">濕度</span><span class="meta-val">偏潮濕悶熱</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.5 9 4.5 4.5 0 0 1 18 18Z"/><circle cx="9" cy="7" r="2.4" fill="none"/></svg><div class="meta-text"><span class="meta-label">提醒</span><span class="meta-val">戶外曝曬時間長，加強防曬</span></div></div>
+    </div>
+    </div>
+
+    <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/><path d="M3 13h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">09:30</div>
+        <div class="tl-label">飯店出發 </div>
+        
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">10:00</div>
+        <div class="tl-label">前往 海雲台海水浴場 <a class="map-link" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">沙灘散步</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="14" height="11" rx="3"/><path d="M5 11h14"/><path d="M9 21l-2-3M15 21l2-3"/><circle cx="9" cy="14" r=".6" fill="currentColor"/><circle cx="15" cy="14" r=".6" fill="currentColor"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">11:00</div>
+        <div class="tl-label">海雲台藍線公園 <a class="map-link" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%EB%B8%94%EB%A3%A8%EB%9D%BC%EC%9D%B8%ED%8C%8C%ED%81%AC" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">海岸列車（天空膠囊列車）絕美海景，建議先線上訂票</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">13:00</div>
+        <div class="tl-label">午餐：海雲台市場 </div>
+        <div class="tl-detail">生魚片街</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 4c0 1-1 1-1 2M11 4c0 1-1 1-1 2"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">15:00</div>
+        <div class="tl-label">咖啡廳休息 </div>
+        <div class="tl-detail">海雲台海景咖啡廳</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l5-4 5 4v12"/><path d="M14 21v-8l4-3 2 2v9"/><path d="M4 21h16"/><path d="M7 12h.01M7 15h.01M7 18h.01M11 12h.01M11 15h.01M11 18h.01"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">17:00</div>
+        <div class="tl-label">前往 BUSAN X the SKY <a class="map-link" href="https://map.naver.com/p/search/BUSAN%20X%20the%20SKY" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">全世界最高星巴克之一，夕陽+夜景一次擁有</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">19:00</div>
+        <div class="tl-label">晚餐：海雲台精緻餐廳 </div>
+        <div class="tl-detail">見下方餐廳推薦</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">20:30</div>
+        <div class="tl-label">前往 The Bay 101／冬柏島 <a class="map-link" href="https://map.naver.com/p/search/%EB%8D%94%EB%B2%A0%EC%9D%B4101" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">網友大推水中倒影夜景</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M3 20c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M12 3v9"/><path d="M9 6l3-3 3 3"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">21:00</div>
+        <div class="tl-label">The Bay 101 倒影拍照 </div>
+        <div class="tl-detail">釜山版維多利亞港</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#17B2C4">22:00</div>
+        <div class="tl-label">返回 HLB飯店 </div>
+        <div class="tl-detail">詳細交通方式見下表</div>
+      </div>
+    </div></div>
+
+    <div class="transit-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">→</span>交通方式</h3>
+      
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> HLB飯店 → 海雲台海水浴場</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約8km，車程20分，預估₩9,000-11,000（約NT$200-244）</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>蓮山站搭3號線往水營方向（1站），水營站轉乘2號線往海雲台方向，至海雲台站（3號或5號出口），全程約25-30分；票價約₩1,600-1,800（交通卡）</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> 海雲台市場 → BUSAN X the SKY</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約2km，車程8分，預估₩5,500-6,500（約NT$122-144）；省去步行時間最快</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>從海雲台站3或5號出口步行約10-15分即達，沿海雲台沙灘方向直走，不需再搭車</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> BUSAN X the SKY → The Bay 101／冬柏島</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約4km，車程12分，預估₩6,500-8,000（約NT$144-178）</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>步行回海雲台站搭2號線往釜田方向，至冬柏站（1站，約5分），1號出口出站步行約10分即達；全程約20-25分，票價約₩1,600（交通卡）</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> The Bay 101 → HLB飯店（晚間回程）</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約9km，車程20-25分，預估₩12,000-14,000（約NT$266-311，含夜間加成）；夜間建議直接叫車</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>冬柏站搭2號線往西面方向，於水營站轉乘3號線往蓮山方向，全程約25-30分；請留意末班車時間（約23:00-24:00收班）</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="reveal">
+    <div class="feature-card" style="background:var(--teal-light)">
+      <div class="feature-icon" style="background:#17B2C41A;color:#17B2C4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M3 20c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M12 3v9"/><path d="M9 6l3-3 3 3"/></svg></div>
+      <div>
+        <h4>📸 The Bay 101 倒影拍照小提醒</h4>
+        <div class="feature-list"><div class="f-item"><b>拍攝地點</b>　並非在The Bay 101建築本體，需穿過旁邊「冬柏公營停車場」走到底的碼頭空地才是真正的倒影拍攝點</div><div class="f-item"><b>拍攝技巧</b>　手機/相機盡量貼近水面拍攝，越低角度倒影越完整；若沒下雨，建議自備寶特瓶裝水現場灑出小水窪</div><div class="f-item"><b>最佳時段</b>　日落後一小時左右光線最美，正對面是Marine City高樓群，左側可遠眺廣安大橋</div><div class="f-item"><b>延伸順遊</b>　拍完倒影可走回The Bay 101建築內的Fingers & Chat吃炸魚薯條配啤酒，或散步到冬柏公園看世峰樓夜景</div></div>
+      </div>
+    </div></div>
+
+    <div class="resto-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">🍽</span>餐廳推薦</h3>
+      <div class="resto-group-title">午餐（海雲台市場）</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">31cm海鮮刀削麵 <a class="map-link" href="https://map.naver.com/p/search/31cm%20%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">超鮮美大碗海鮮麵，貝類滿滿</div>
+      <div class="resto-meta"><span>📍 부산광역시 해운대구 구남로41번길 46</span><span>二~五11:00-21:30</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">密陽血腸豬肉湯飯 <a class="map-link" href="https://map.naver.com/p/search/%EB%B0%80%EC%96%91%EC%88%9C%EB%8C%80%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5%20%ED%95%B4%EC%9A%B4%EB%8C%80" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">24小時營業的豬肉湯飯名店，多位韓星造訪過</div>
+      <div class="resto-meta"><span>📍 부산 해운대구 구남로 28</span><span>24小時</span></div>
+    </div></div><div class="resto-group-title">晚餐（海雲台精緻餐廳）</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">伍班長烤肉 <a class="map-link" href="https://map.naver.com/p/search/%EC%98%A4%EB%B0%98%EC%9E%A5%20%ED%95%B4%EC%9A%B4%EB%8C%80" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">海雲台經濟實惠的烤肉推薦，有烤蛋</div>
+      <div class="resto-meta"><span>📍 부산 해운대구 구남로24번길 20</span><span>12:00-次日01:00</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">海雲台암소갈비집 <a class="map-link" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%EC%95%94%EC%86%8C%EA%B0%88%EB%B9%84%EC%A7%91" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">米其林指南肯定的老字號韓屋餐廳，招牌生牛排骨＋湯汁煮馬鈴薯麵</div>
+      <div class="resto-meta"><span>📍 海雲台區</span><span>依店家公告</span></div>
+    </div></div>
+    </div>
+
+    
+    <div class="tip-card">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4Z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg> 天空膠囊列車 Tips</h4>
+      <div class="tip-grid"><div class="tip-item"><b>訂票提醒　</b>海雲台藍線公園天空膠囊列車很熱門，旺季建議提前在官網或KKday/Klook訂票</div><div class="tip-item"><b>拍照延伸　</b>拍完Bay101倒影後，可散步到冬柏公園看世峰樓夜景，順遊整個海岸線</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="day-section" id="day4" style="background:var(--purple-light)">
+  <div class="shell">
+    <div class="reveal">
+      <span class="day-badge" style="background:var(--purple);color:white">DAY 4 ／ 7.23 THU</span>
+      <h2 class="day-title">Skyline Luge 斜坡滑車，<br>西面購物美食</h2>
+      
+    <div class="day-meta-bar">
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.8V5a2 2 0 0 1 4 0v9.8a4 4 0 1 1-4 0Z"/></svg><div class="meta-text"><span class="meta-label">氣溫</span><span class="meta-val">27-31°C</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v7a2 2 0 0 1-4 0"/><path d="M12 3v2"/></svg><div class="meta-text"><span class="meta-label">降雨</span><span class="meta-val">中高</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11.5a6 6 0 0 1-12 0C6 10 12 3 12 3Z"/></svg><div class="meta-text"><span class="meta-label">濕度</span><span class="meta-val">偏潮濕悶熱</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.5 9 4.5 4.5 0 0 1 18 18Z"/><circle cx="9" cy="7" r="2.4" fill="none"/></svg><div class="meta-text"><span class="meta-label">提醒</span><span class="meta-val">戶外排隊曝曬，注意防曬補水</span></div></div>
+    </div>
+      <div class="day-note">💡 行程調整說明：考量 Skyline Luge 位於奧西利亞（機張郡），離市區較遠，故將原訂田浦咖啡街、按摩放鬆行程取消，改為上午直接前往奧西利亞，安排半天遊玩，下午再返回西面逛街用餐。</div>
+    </div>
+
+    <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 4c0 1-1 1-1 2M11 4c0 1-1 1-1 2"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">08:30</div>
+        <div class="tl-label">早餐：飯店周邊覓食 </div>
+        <div class="tl-detail">簡單買咖啡麵包或附近早餐店</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/><path d="M3 13h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">09:00</div>
+        <div class="tl-label">飯店出發 </div>
+        <div class="tl-detail">行李可先簡單整理，明天回程</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">09:15</div>
+        <div class="tl-label">前往 Skyline Luge（奧西利亞） <a class="map-link" href="https://map.naver.com/p/search/%EC%8A%A4%EC%B9%B4%EC%9D%B4%EB%9D%BC%EC%9D%B8%EB%A3%A8%EC%A7%80%20%EB%B6%80%EC%82%B0" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">建議避開週末人潮</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 9 7l4 6 2-3 6 9Z"/><circle cx="17" cy="6" r="1.6"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">10:00</div>
+        <div class="tl-label">Skyline Luge 斜坡滑車體驗 </div>
+        <div class="tl-detail">先搭纜車上坡賞海景，再玩斜坡滑車，建議購買3-4趟套票</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">12:30</div>
+        <div class="tl-label">午餐：園區周邊或樂天Outlet美食區 </div>
+        <div class="tl-detail">可順遊東釜山樂天Outlet</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">14:00</div>
+        <div class="tl-label">前往 西面商圈 <a class="map-link" href="https://map.naver.com/p/search/%EC%84%9C%EB%A9%B4" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">詳細交通方式見下表</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8 5 4h14l1 4"/><path d="M4 8h16v12H4Z"/><path d="M9 12a3 3 0 0 0 6 0"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">14:30</div>
+        <div class="tl-label">西面逛街購物 <a class="map-link" href="https://map.naver.com/p/search/%EC%84%9C%EB%A9%B4%20%EC%A7%80%ED%95%98%EC%83%81%EA%B0%80" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">樂天百貨、地下街，美妝服飾紀念品</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">17:00</div>
+        <div class="tl-label">豬肉湯飯一條街 </div>
+        <div class="tl-detail">稍作休息墊胃</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3v5M9 3v5M6 8h3"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">18:30</div>
+        <div class="tl-label">晚餐：西面烤肉店 </div>
+        <div class="tl-detail">釜山知名烤肉聚集地</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 5 11a3 3 0 0 0 6 0L10 3Z"/><path d="M18 3l-1 9a3 3 0 0 1-6 0"/><path d="M8 14v7M8 21h0"/><path d="M5 21h6"/><path d="M15 14l1 7M16 21h0"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">20:30</div>
+        <div class="tl-label">帳篷馬車（布帳馬車）小酌 </div>
+        <div class="tl-detail">體驗韓國路邊攤文化</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#8E6FCB">22:00</div>
+        <div class="tl-label">返回 HLB飯店 </div>
+        <div class="tl-detail">打包行李</div>
+      </div>
+    </div></div>
+
+    <div class="transit-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">→</span>交通方式</h3>
+      
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> HLB飯店 → Skyline Luge（奧西利亞）</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約25km，車程35-40分，預估₩25,000-30,000（約NT$555-666）；距離較遠，直接叫車最省時間</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>蓮山站搭1號線往釜山站方向，至釜田站轉乘東海線（Donghae Line）往太和江方向，搭至奧西利亞站，1號出口出站轉乘公車1001或139（約5分）至「龍宮寺/國立水產科學研究所」站，下車過馬路即達；全程約70-80分</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> Skyline Luge → 西面商圈</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約27km，車程35-40分，預估₩26,000-31,000（約NT$577-688）；園區外即可叫車，最方便</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>原路步行5分回公車站，搭1001或139至奧西利亞站，轉乘東海線往釜田方向，至釜田站轉乘1號線往西面方向，至西面站；全程約75-85分</p>
+      </div>
+    </div>
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> 西面 → HLB飯店（晚間回程）</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約4km，車程12-15分，預估₩7,000-9,000（約NT$155-200，含夜間加成）</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>西面站搭1號線往蓮山方向，直達蓮山站（與蓮山站同為1號線，不需轉乘），約4站、全程約10-12分；票價約₩1,500-1,600（交通卡）</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="reveal">
+    <div class="feature-card" style="background:var(--purple-light)">
+      <div class="feature-icon" style="background:#8E6FCB1A;color:#8E6FCB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 9 7l4 6 2-3 6 9Z"/><circle cx="17" cy="6" r="1.6"/></svg></div>
+      <div>
+        <h4>🎢 Skyline Luge 小提醒</h4>
+        <div class="feature-list"><div class="f-item"><b>園區內容</b>　共4條賽道，總長2.4km、30+彎道、落差100m+；體驗前需先搭乘開放式纜車上坡，沿途可賞奧西利亞海岸線</div><div class="f-item"><b>票價參考</b>　斜坡滑車2趟约₩28,000起（約NT$622起），可加購高空滑索Hyfly雙人套票</div><div class="f-item"><b>順遊建議</b>　鄰近東釜山樂天Outlet與樂天購物中心，可安排在Luge後順遊</div><div class="f-item"><b>交通建議</b>　由於地鐵轉乘繁複耗時，且東海線班次較稀疏（約20-30分一班），強烈建議去回程都搭Uber，可省下約1小時車程時間</div></div>
+      </div>
+    </div></div>
+
+    <div class="resto-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">🍽</span>餐廳推薦</h3>
+      <div class="resto-group-title">豬肉湯飯一條街</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">浦項豬肉湯飯 <a class="map-link" href="https://map.naver.com/p/search/%ED%8F%AC%ED%95%AD%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5%20%EC%84%9C%EB%A9%B4" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">70年歷史老店，免費無限提供多種小菜</div>
+      <div class="resto-meta"><span>📍 부산 부산진구 서면로68번길 27</span><span>24小時</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">秀英本家豬肉湯飯 <a class="map-link" href="https://map.naver.com/p/search/%EC%88%98%EC%98%81%EB%B3%B8%EA%B0%80%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">湯頭濃郁不腥，厚切豬肉超嫩</div>
+      <div class="resto-meta"><span>📍 부산 부산진구 서면문화로 17 1층</span><span>24小時</span></div>
+    </div></div><div class="resto-group-title">晚餐（西面烤肉）</div><div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">味贊王鹽烤肉西面店 <a class="map-link" href="https://map.naver.com/p/search/%EB%A7%9B%EC%B0%AC%EB%93%A4%EC%99%95%EC%86%8C%EA%B8%88%EA%B5%AC%EC%9D%B4%20%EC%84%9C%EB%A9%B4%EC%A0%90" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">3.5公分厚切豬五花，專業店員全程代烤</div>
+      <div class="resto-meta"><span>📍 부산 부산진구 중앙대로691번가길 24-3</span><span>11:30-23:00</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">西面No.9韓牛 <a class="map-link" href="https://map.naver.com/p/search/%EC%84%9C%EB%A9%B4%20%ED%95%9C%EC%9A%B0%20No.9" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>地圖</a></div>
+      <div class="resto-desc">1++等級韓牛，專人代烤，適合慶祝晚餐</div>
+      <div class="resto-meta"><span>📍 西面站周邊</span><span>依店家公告</span></div>
+    </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="day-section" id="day5" style="background:var(--slate-light)">
+  <div class="shell">
+    <div class="reveal">
+      <span class="day-badge" style="background:var(--slate);color:white">DAY 5 ／ 7.24 FRI</span>
+      <h2 class="day-title">早晨悠閒，返程</h2>
+      
+    <div class="day-meta-bar">
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.8V5a2 2 0 0 1 4 0v9.8a4 4 0 1 1-4 0Z"/></svg><div class="meta-text"><span class="meta-label">氣溫</span><span class="meta-val">27-31°C</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v7a2 2 0 0 1-4 0"/><path d="M12 3v2"/></svg><div class="meta-text"><span class="meta-label">降雨</span><span class="meta-val">中</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11.5a6 6 0 0 1-12 0C6 10 12 3 12 3Z"/></svg><div class="meta-text"><span class="meta-label">濕度</span><span class="meta-val">偏潮濕悶熱</span></div></div>
+      <div class="day-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.5 9 4.5 4.5 0 0 1 18 18Z"/><circle cx="9" cy="7" r="2.4" fill="none"/></svg><div class="meta-text"><span class="meta-label">提醒</span><span class="meta-val">預留充足時間給機場安檢與報到</span></div></div>
+    </div>
+    </div>
+
+    <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#5B7184"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/><path d="M3 13h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#5B7184">08:30</div>
+        <div class="tl-label">飯店退房 </div>
+        
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#5B7184"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 4c0 1-1 1-1 2M11 4c0 1-1 1-1 2"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#5B7184">09:00</div>
+        <div class="tl-label">早餐／附近咖啡廳小憩 </div>
+        <div class="tl-detail">蓮山站周邊或順路咖啡廳</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#5B7184"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#5B7184">10:30</div>
+        <div class="tl-label">前往 金海機場 <a class="map-link" href="https://map.naver.com/p/search/%EA%B9%80%ED%95%B4%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Naver地圖</a></div>
+        <div class="tl-detail">預留充足時間</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#5B7184"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a1.5 1.5 0 0 0-2.1-2.1L14 8.9 5.8 7.1a1 1 0 0 0-.9.3l-.6.6 6.2 4.2-3 3-2.5-.4-.7.7 2.3 1.9 1.9 2.3.7-.7-.4-2.5 3-3 4.2 6.2.6-.6a1 1 0 0 0 .3-.9Z"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#5B7184">12:15</div>
+        <div class="tl-label">PUS 出發 </div>
+        <div class="tl-detail">搭乘中華航空 CI189</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#5B7184"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a1.5 1.5 0 0 0-2.1-2.1L14 8.9 5.8 7.1a1 1 0 0 0-.9.3l-.6.6 6.2 4.2-3 3-2.5-.4-.7.7 2.3 1.9 1.9 2.3.7-.7-.4-2.5 3-3 4.2 6.2.6-.6a1 1 0 0 0 .3-.9Z"/></svg></div>
+      <div class="tl-card">
+        <div class="tl-time" style="color:#5B7184">13:40</div>
+        <div class="tl-label">抵達 TPE </div>
+        <div class="tl-detail">行程圓滿結束</div>
+      </div>
+    </div></div>
+
+    <div class="transit-block reveal">
+      <h3 class="section-title" style="font-size:24px"><span class="num">→</span>交通方式</h3>
+      
+    <div class="transit-route-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg> HLB飯店 → 金海機場</div>
+    <div class="transit-pair">
+      <div class="transit-option uber">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-5l2-5h12l3 5v5h-2"/><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M9 17h6"/><path d="M3 12h18"/></svg> Uber</div>
+        <p>約20km，車程30-40分，預估₩20,000-25,000（約NT$444-555）；行李多、需準時報到，建議直接叫車</p>
+      </div>
+      <div class="transit-option metro">
+        <div class="t-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14"/><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"/><path d="M8 21l1.5-3M16 21l-1.5-3"/></svg> 地鐵</div>
+        <p>蓮山站搭3號線往大渚方向，至大渚站轉乘金海輕軌往機場站方向，全程約50-60分；票價約₩2,100-2,300（交通卡）；若搭地鐵建議至少預留90分鐘以上含轉乘與報到時間</p>
+      </div>
+    </div>
+    </div>
+
+    <p class="reveal" style="margin-top:50px;text-align:center;font-family:var(--serif);font-size:22px;font-style:italic;color:var(--deep)">五天四夜，圓滿收尾。從廣安里的浪漫夜景到 Skyline Luge 的速度刺激，期待下一次的釜山旅程。</p>
+  </div>
+</section>
+
+<section class="final-tips">
+  <div class="shell">
+    <div class="reveal">
+      <div class="section-kicker">Before You Go</div>
+      <h2 class="section-title"><span class="num">06</span> 旅行小提醒</h2>
+    </div>
+    <div class="tips-grid reveal"><div class="tip-box"><b>叫車 App</b><span>釜山 Uber 和 Kakao T 都能用，建議兩個都下載互相比價；上車前先確認跳錶金額是否與App預估接近</span></div><div class="tip-box"><b>交通卡</b><span>建議抵達機場時購買 T-money 或 WOWPASS 交通卡，搭地鐵/公車/轉乘都比單程票便宜，30分鐘內轉乘最多2次有優惠</span></div><div class="tip-box"><b>地鐵 vs Uber</b><span>市區內短程（如蓮山↔廣安里、蓮山↔西面）地鐵其實很方便；長程或多次轉乘路段（如往Skyline Luge）建議Uber較省時間</span></div><div class="tip-box"><b>夜間加成</b><span>22:00-04:00 搭車有約20%夜間加成費用，地鐵末班車約23:00-24:00，太晚移動建議直接叫車</span></div><div class="tip-box"><b>匯率換算</b><span>文件採約 1韓元=NT$0.0222 估算，出發前建議再次確認當下匯率，實際支付以刷卡或換匯當下金額為準</span></div><div class="tip-box"><b>天氣與防曬</b><span>7月為釜山降雨高峰期，平均每月有15個雨天，建議隨身攜帶輕便雨具；紫外線強，防曬乳需勤補擦</span></div><div class="tip-box"><b>文化村人潮</b><span>甘川文化村建議上午去，下午陽光容易背光，假日人潮較多</span></div><div class="tip-box"><b>海岸列車訂票</b><span>海雲台藍線公園天空膠囊列車很熱門，旺季建議提前在官網或KKday/Klook訂票</span></div></div>
+    <p class="closing-line">祝你們釜山旅途愉快，浪漫滿載而歸！</p>
+  </div>
+</section>
+
+<footer>
+  BUSAN 5D4N ITINERARY &nbsp;·&nbsp; 釜山五天四夜情侶旅行計畫 &nbsp;·&nbsp; 2026
+</footer>
+
+<script>
+  // ── Reveal on scroll ──────────────────────────────────────────
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // ── Active button highlight ───────────────────────────────────
+  const navBtns = document.querySelectorAll('.top-nav-btn');
+  const daySections = document.querySelectorAll('.day-section');
+
+  const navIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navBtns.forEach(b => b.classList.remove('active'));
+        const match = document.querySelector('.top-nav-btn[data-day="' + e.target.id + '"]');
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });  // trigger when section is 20% from top
+
+  daySections.forEach(s => navIO.observe(s));
+
+  // ── Smooth scroll with nav offset ────────────────────────────
+  const topNav = document.getElementById('topNav');
+  document.querySelectorAll('.top-nav-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(btn.getAttribute('href'));
+      if (!target) return;
+      const offset = topNav.offsetHeight + 16;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+</script>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // Active day-nav dot
+  const navLinks = document.querySelectorAll('.day-nav a');
+  const daySections = document.querySelectorAll('.day-section');
+  const navIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const match = document.querySelector('.day-nav a[data-day="' + e.target.id + '"]');
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  daySections.forEach(s => navIO.observe(s));
+</script>
+</body>
+</html>
